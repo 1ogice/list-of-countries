@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(177, 177, 177);
   font-family: sans-serif;
 }
 
@@ -35,6 +34,7 @@ header {
 }
 
 main {
+  background-color: rgb(243, 243, 243);
   padding: 30px 60px 0 60px;
   article {
     display: flex;
@@ -50,6 +50,7 @@ main {
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 5px;
       overflow: hidden;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
       #searchInput {
         width: 95%;
         height: 100%;
@@ -66,10 +67,46 @@ main {
       border: 1px solid rgba(0, 0, 0, 0.3);
       border-radius: 5px;
       padding-left: 10px;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
       #selectRegion {
         width: 150px;
         border: none;
         outline: none;
+      }
+    }
+  }
+  #countriesField {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 70px;
+    grid-row-gap: 70px;
+    .countryDiv {
+      height: 350px;
+      width: 100%;
+      border-radius: 7px;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      .countryFlagDiv {
+        height: 150px;
+        .countryFlag {
+          height: 150px;
+          width: 100%;
+        }
+      }
+      .countryName {
+        font-weight: bold;
+        margin: 10px 25px 20px 25px;
+      }
+      .countryCapital,
+      .countryRegion,
+      .countryPopulation {
+        margin: 0 25px 5px 25px;
+        font-size: 16px;
+      }
+      .countryCapitalValue,
+      .countryRegionValue,
+      .countryPopulationValue {
+        font-size: 14px;
       }
     }
   }

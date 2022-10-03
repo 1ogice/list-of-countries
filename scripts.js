@@ -1,7 +1,86 @@
-// let url = `https://restcountries.com/v3.1/all`;
+function fixNum(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
-// axios.get(url).then((res) => {
-//   for (let i = 0; i < res.data.length; i++) {
-//     console.log(res.data[i].name.common.length);
-//   }
-// });
+let url = `https://restcountries.com/v3.1/all`;
+(() => {
+  axios.get(url).then((res) => {
+    console.log(res.data);
+
+    for (let i = 0; i < res.data.length; i++) {
+      res.data.sort(function (a, b) {
+        if (a.name.common.toUpperCase() < b.name.common.toUpperCase()) {
+          return -1;
+        }
+      });
+
+      let allCountries = document.getElementById("countriesField");
+
+      let countryDiv = document.createElement("div");
+      countryDiv.className = "countryDiv";
+
+      allCountries.appendChild(countryDiv);
+
+      let countryFlagDiv = document.createElement("div");
+      countryFlagDiv.className = "countryFlagDiv";
+
+      countryDiv.appendChild(countryFlagDiv);
+
+      let countryFlag = document.createElement("img");
+      countryFlag.src = res.data[i].flags.png;
+      countryFlag.className = "countryFlag";
+
+      countryFlagDiv.appendChild(countryFlag);
+
+      let countryName = document.createElement("p");
+      countryName.className = "countryName";
+      countryName.innerHTML = res.data[i].name.common;
+
+      countryDiv.appendChild(countryName);
+
+      let countryPopulation = document.createElement("p");
+      countryPopulation.className = "countryPopulation";
+      countryPopulation.innerHTML = "Population: ";
+      let countryPopulationValue = document.createElement("span");
+      countryPopulationValue.className = "countryPopulationValue";
+      countryPopulationValue.innerHTML = fixNum(res.data[i].population);
+      if (res.data[i].population === 0) {
+        countryPopulationValue.innerHTML = "Uninhabited";
+      }
+
+      countryDiv.appendChild(countryPopulation);
+      countryPopulation.appendChild(countryPopulationValue);
+
+      let countryRegion = document.createElement("p");
+      countryRegion.className = "countryRegion";
+      countryRegion.innerHTML = "Region: ";
+      let countryRegionValue = document.createElement("span");
+      countryRegionValue.className = "countryRegionValue";
+      countryRegionValue.innerHTML = res.data[i].region;
+
+      countryDiv.appendChild(countryRegion);
+      countryRegion.appendChild(countryRegionValue);
+
+      let countryCapital = document.createElement("p");
+      countryCapital.className = "countryCapital";
+      countryCapital.innerHTML = "Capital: ";
+      let countryCapitalValue = document.createElement("span");
+      countryCapitalValue.className = "countryCapitalValue";
+      countryCapitalValue.innerHTML = res.data[i].capital;
+      if (res.data[i].capital === undefined) {
+        countryCapitalValue.innerHTML = "None";
+      }
+
+      countryDiv.appendChild(countryCapital);
+      countryCapital.appendChild(countryCapitalValue);
+
+      //   function search() {
+      //       if (res.data[i].name.common) {
+
+      //       }
+
+      //   }
+      //   search();
+    }
+  });
+})();
