@@ -74,13 +74,18 @@ let url = `https://restcountries.com/v3.1/all`;
       countryDiv.appendChild(countryCapital);
       countryCapital.appendChild(countryCapitalValue);
 
-      //   function search() {
-      //       if (res.data[i].name.common) {
-
-      //       }
-
-      //   }
-      //   search();
+      function search() {
+        if (
+          countryName.innerHTML
+            .toUpperCase()
+            .indexOf(searchInput.value.toUpperCase()) > -1
+        ) {
+          countryDiv.style.display = "";
+        } else {
+          countryDiv.style.display = "none";
+        }
+      }
+      document.addEventListener("keyup", search);
     }
   });
 })();
