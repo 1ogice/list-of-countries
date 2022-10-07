@@ -2,6 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 .container {
@@ -21,6 +23,8 @@ header {
           align-items: center;
   height: 80px;
   background-color: white;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 header h1 {
   margin: 0;
@@ -41,12 +45,20 @@ header button {
           justify-content: space-between;
   cursor: pointer;
 }
-header button #themeModeIcon {
-  padding-right: 5px;
+header button #themeModeMoon {
+  position: absolute;
+  right: 140px;
+}
+header button #themeModeSun {
+  position: absolute;
+  right: 140px;
+  display: none;
 }
 
 main {
   background-color: rgb(243, 243, 243);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   padding: 30px 60px 0 60px;
 }
 main article {
@@ -58,6 +70,8 @@ main article {
           justify-content: space-between;
 }
 main article .search {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   height: 40px;
   padding-left: 20px;
   display: -webkit-box;
@@ -78,6 +92,8 @@ main article .search {
           box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 main article .search #searchInput {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   width: 95%;
   height: 100%;
   border: none;
@@ -86,6 +102,8 @@ main article .search #searchInput {
   outline: none;
 }
 main article .select {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,6 +117,8 @@ main article .select {
           box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 main article .select #selectRegion {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   width: 150px;
   border: none;
   outline: none;
@@ -116,8 +136,8 @@ main #countriesField .countryDiv {
   height: 350px;
   width: 100%;
   border-radius: 7px;
-  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 }
 main #countriesField .countryDiv .countryFlagDiv {
   height: 150px;
@@ -140,4 +160,50 @@ main #countriesField .countryDiv .countryCapitalValue,
 main #countriesField .countryDiv .countryRegionValue,
 main #countriesField .countryDiv .countryPopulationValue {
   font-size: 14px;
+}
+
+.dark-mode-body {
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  color: white;
+  background-color: #373737;
+}
+.dark-mode-body header {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #373737;
+}
+.dark-mode-body header button {
+  color: white;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.dark-mode-body header #themeModeMoon {
+  position: absolute;
+  right: 140px;
+  display: none;
+}
+.dark-mode-body header #themeModeSun {
+  position: absolute;
+  right: 140px;
+  display: inline;
+}
+.dark-mode-body main {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #292727;
+}
+.dark-mode-body main #searchInput,
+.dark-mode-body main .search,
+.dark-mode-body main #selectRegion,
+.dark-mode-body main .select {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: white;
+  background-color: #292727;
+  border: 1px solid gray;
+}
+.dark-mode-body main #countriesField .countryDiv {
+  -webkit-box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.3);
+          box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.3);
 }

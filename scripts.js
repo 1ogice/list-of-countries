@@ -105,3 +105,9 @@ let url = `https://restcountries.com/v3.1/all`;
     }
   });
 })();
+
+function darkMode() {
+  let body = document.body;
+  body.classList.toggle("dark-mode-body");
+}
+document.querySelector("#themeModeBtn").addEventListener("click", darkMode);

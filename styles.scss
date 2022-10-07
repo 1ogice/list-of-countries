@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  transition: all 0.1s ease;
 }
 
 .container {
@@ -15,6 +16,7 @@ header {
   align-items: center;
   height: 80px;
   background-color: white;
+  transition: all 0.3s ease;
   h1 {
     margin: 0;
     font-size: 24px;
@@ -27,19 +29,27 @@ header {
     align-items: flex-end;
     justify-content: space-between;
     cursor: pointer;
-    #themeModeIcon {
-      padding-right: 5px;
+    #themeModeMoon {
+      position: absolute;
+      right: 140px;
+    }
+    #themeModeSun {
+      position: absolute;
+      right: 140px;
+      display: none;
     }
   }
 }
 
 main {
   background-color: rgb(243, 243, 243);
+  transition: all 0.3s ease;
   padding: 30px 60px 0 60px;
   article {
     display: flex;
     justify-content: space-between;
     .search {
+      transition: all 0.3s ease;
       height: 40px;
       padding-left: 20px;
       display: flex;
@@ -52,6 +62,7 @@ main {
       overflow: hidden;
       box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
       #searchInput {
+        transition: all 0.3s ease;
         width: 95%;
         height: 100%;
         border: none;
@@ -60,6 +71,7 @@ main {
       }
     }
     .select {
+      transition: all 0.3s ease;
       display: flex;
       height: 40px;
       width: 160px;
@@ -69,6 +81,7 @@ main {
       padding-left: 10px;
       box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
       #selectRegion {
+        transition: all 0.3s ease;
         width: 150px;
         border: none;
         outline: none;
@@ -85,7 +98,7 @@ main {
       height: 350px;
       width: 100%;
       border-radius: 7px;
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
       .countryFlagDiv {
         height: 150px;
         .countryFlag {
@@ -107,6 +120,49 @@ main {
       .countryRegionValue,
       .countryPopulationValue {
         font-size: 14px;
+      }
+    }
+  }
+}
+
+//DARK-MODE
+.dark-mode-body {
+  transition: all 0.1s ease;
+  color: white;
+  background-color: #373737;
+  header {
+    transition: all 0.3s ease;
+    background-color: #373737;
+    button {
+      color: white;
+      transition: all 0.3s ease;
+    }
+    #themeModeMoon {
+      position: absolute;
+      right: 140px;
+      display: none;
+    }
+    #themeModeSun {
+      position: absolute;
+      right: 140px;
+      display: inline;
+    }
+  }
+  main {
+    transition: all 0.3s ease;
+    background-color: #292727;
+    #searchInput,
+    .search,
+    #selectRegion,
+    .select {
+      transition: all 0.3s ease;
+      color: white;
+      background-color: #292727;
+      border: 1px solid gray;
+    }
+    #countriesField {
+      .countryDiv {
+        box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.3);
       }
     }
   }
